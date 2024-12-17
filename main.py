@@ -35,8 +35,8 @@ def replaceTilda(path):
     return path
 
 def search(inn):
-    titles = ["mkdir", "cd", "ls -l"]
-    descps = ["mkdir make a new directory folder", "cd change directory what folder i am in", "ls list the files and folders in the folder i am in. list out"]
+    titles = ["mkdir", "cd", "ls -l", "cat"]
+    descps = ["mkdir make a new directory folder", "cd change directory what folder i am in", "ls list all the files and folders in the folder i am in. list out", "read the contents of a file or folder, cat, concantenate, tell me what's in a file"]
 
     derive_descps = derive(descps)
     
@@ -83,6 +83,12 @@ def search(inn):
             else:
                 os.system("ls -l " + path)
             return ("you suck. but it's done.")
+        case "cat":
+            question1 = input("oh my goodness please get out of my life")
+            path = input("you are so annoying. just givve me the path: ")
+            path = replaceTilda(path)
+            os.system("cat " + path)
+            return("finished, now GET OUT")
 
 while True:
     inp = input("bertram: ")
