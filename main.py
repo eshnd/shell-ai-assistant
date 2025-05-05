@@ -58,40 +58,34 @@ def search(inn):
 
     match (final):
         case "cd":
-            need = input("do i need to do it??? i already do way too much. ")
-            if (need == "no"):
-                sys.exit()
-            path = input("ugh, okay fine. what's the path? ")
+            path = input("path? ")
             path = replaceTilda(path)
             os.chdir(path)
             os.system("echo 'path: ' && pwd")
-            return ("okay, im done. im going back to sleep now.")
+            return "successful"
         case "mkdir":
-            question1 = input("stop bothering me. ")
-            path = input("FINE! just give me the dang path at least? no one here treats me with respect. ")
+            path = input("path? ")
             path = replaceTilda(path)
             os.system("mkdir " + path)
             print("path: \n" + path)
-            return ("one day, im gonna quit. but today, im too lazy too. the job is finished.")
+            return "successful"
         case "ls -l":
-            question1 = input("I WAS JUST ABOUT TO GO TO SLEEP!!! ")
-            path = input("fine. just this once. what is the path? ")
-            la = input("oh yeah, do you want hidden files as well (y/n)?? ")
+            path = input("path? ")
+            la = input("Hidden files as well (y/n)? ")
             path = replaceTilda(path)
             if la=="y" or la=="yes":
                 os.system("ls -la " + path)
             else:
                 os.system("ls -l " + path)
-            return ("you suck. but it's done.")
+            return "successful"
         case "cat":
-            question1 = input("oh my goodness please get out of my life")
-            path = input("you are so annoying. just givve me the path: ")
+            path = input("path? ")
             path = replaceTilda(path)
             os.system("cat " + path)
-            return("finished, now GET OUT")
+            return "successful"
 
 while True:
-    inp = input("bertram: ")
+    inp = input("Command description: ")
     if inp=="exit":
         sys.exit()
     print(search(inp))
